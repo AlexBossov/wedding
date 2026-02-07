@@ -1,0 +1,545 @@
+:root {
+  --sage: #A8B5A0;
+  --sage-light: #C5D0BE;
+  --sage-dark: #7A8B72;
+  --olive: #5C6B56;
+  --olive-dark: #3D4A37;
+  --cream: #F5F0E8;
+  --cream-light: #FAF8F4;
+  --white: #FEFEFE;
+
+  --font-script: 'Great Vibes', cursive;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Raleway', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  color: var(--olive-dark);
+  background: var(--sage);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ========== Dividers ========== */
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 0;
+}
+
+.divider span {
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: var(--sage-dark);
+  transform: rotate(45deg);
+  opacity: 0.35;
+}
+
+.divider-light span {
+  background: rgba(245, 240, 232, 0.4);
+}
+
+.leaf-divider {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem 0;
+}
+
+/* ========== Section Titles ========== */
+
+.section-title {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  text-align: center;
+  letter-spacing: 0.04em;
+  margin-bottom: 2rem;
+  color: var(--olive-dark);
+}
+
+.section-title-light {
+  color: var(--cream);
+}
+
+/* ========== Hero ========== */
+
+.hero {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--sage);
+  position: relative;
+  padding: 1rem;
+}
+
+.hero-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.hero-photo {
+  max-width: min(100%, 460px);
+  max-height: 88dvh;
+  object-fit: contain;
+  display: block;
+  border-radius: 20px;
+  opacity: 0;
+  animation: heroFadeIn 1.8s ease forwards;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 1.2rem;
+  color: var(--cream);
+  opacity: 0;
+  animation: hintAppear 1s 2s ease forwards;
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes hintAppear {
+  from { opacity: 0; }
+  to   { opacity: 0.5; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(6px); }
+}
+
+.scroll-hint svg {
+  animation: bounce 2.5s ease-in-out infinite;
+}
+
+/* ========== Countdown (cream bg) ========== */
+
+.countdown-section {
+  background: var(--cream);
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.countdown {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 56px;
+}
+
+.countdown-number {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(2rem, 8vw, 3rem);
+  color: var(--olive-dark);
+  line-height: 1;
+}
+
+.countdown-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--sage-dark);
+  margin-top: 0.35rem;
+}
+
+.countdown-sep {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 6vw, 2.2rem);
+  color: var(--sage-dark);
+  opacity: 0.4;
+  line-height: 1;
+  padding-top: 0.1em;
+}
+
+/* ========== Invitation (sage bg) ========== */
+
+.invitation-section {
+  background: var(--sage);
+  padding: 3rem 1.5rem 3.5rem;
+}
+
+.invitation {
+  text-align: center;
+}
+
+.invitation h2 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 4.5vw, 2rem);
+  margin-bottom: 1.5rem;
+  color: var(--cream);
+}
+
+.invitation p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+.invitation-date {
+  font-family: var(--font-serif);
+  font-size: 1.4rem !important;
+  font-weight: 500;
+  margin-top: 1.5rem !important;
+  color: var(--white) !important;
+  letter-spacing: 0.06em;
+}
+
+.invitation-place {
+  font-family: var(--font-serif);
+  font-size: 1.15rem !important;
+  font-weight: 300;
+  font-style: italic;
+  margin-top: 0.3rem !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+/* ========== Calendar (cream bg) ========== */
+
+.calendar-section {
+  background: var(--cream);
+  padding: 2rem 1.5rem 3rem;
+}
+
+.calendar {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  text-align: center;
+}
+
+.cal-head {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--sage-dark);
+  padding-bottom: 0.75rem;
+}
+
+.cal-day {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: var(--olive);
+  padding: 0.45rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.cal-day.active {
+  color: var(--olive-dark);
+  font-weight: 500;
+  position: relative;
+}
+
+.cal-heart {
+  margin-top: 3px;
+  display: block;
+}
+
+/* ========== Timeline (sage bg) ========== */
+
+.timeline-section {
+  background: var(--sage);
+  padding: 3rem 1.5rem 3.5rem;
+  color: var(--cream);
+}
+
+.timeline-section .section-title {
+  color: var(--cream);
+}
+
+.timeline {
+  position: relative;
+  max-width: 380px;
+  margin: 0 auto;
+  padding-left: 2.5rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: rgba(245, 240, 232, 0.3);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 2.5rem;
+  padding-left: 1.5rem;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -2.85rem;
+  top: 0.35rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  z-index: 1;
+}
+
+.timeline-time {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 0.15rem;
+  letter-spacing: 0.03em;
+}
+
+.timeline-content h3 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.15rem;
+  margin-bottom: 0.2rem;
+  color: var(--cream);
+}
+
+.timeline-content p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* ========== Location (cream bg) ========== */
+
+.location-section {
+  background: var(--cream);
+  padding: 3rem 1.5rem 3.5rem;
+}
+
+.location {
+  text-align: center;
+}
+
+.location-name {
+  font-family: var(--font-script);
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  font-weight: 400;
+  color: var(--olive-dark);
+  margin-bottom: 0.5rem;
+}
+
+.location-desc {
+  color: var(--olive);
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.venue-image {
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.venue-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.location-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--olive-dark);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  padding: 0.6rem 1.4rem;
+  border: 1px solid var(--sage-dark);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--sage);
+  color: var(--white);
+  border-color: var(--sage);
+}
+
+/* ========== Dresscode (sage bg) ========== */
+
+.dresscode-section {
+  background: var(--sage);
+  padding: 2rem 1.5rem 3rem;
+}
+
+.dresscode-section .section-title {
+  color: var(--cream);
+}
+
+.dresscode-section .divider span {
+  background: rgba(245, 240, 232, 0.4);
+}
+
+.dresscode {
+  text-align: center;
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+.dresscode p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 1.5rem;
+}
+
+.dresscode-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* ========== Footer ========== */
+
+.footer {
+  background: var(--olive-dark);
+  color: var(--cream);
+  text-align: center;
+  padding: 3.5rem 1.5rem;
+}
+
+.footer-names {
+  font-family: var(--font-script);
+  font-size: clamp(2.2rem, 7vw, 3rem);
+  margin-bottom: 0.5rem;
+}
+
+.footer-text {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 300;
+  opacity: 0.75;
+  margin-bottom: 0.4rem;
+}
+
+.footer-date {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  opacity: 0.5;
+  letter-spacing: 0.08em;
+}
+
+/* ========== Animations ========== */
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== Responsive ========== */
+
+@media (min-width: 768px) {
+  .hero-photo {
+    max-width: 460px;
+    border-radius: 28px;
+    box-shadow: 0 12px 48px rgba(61, 74, 55, 0.15);
+  }
+
+  .countdown-item {
+    min-width: 80px;
+  }
+
+  .calendar {
+    max-width: 360px;
+  }
+
+  .cal-day {
+    font-size: 1.2rem;
+    padding: 0.55rem 0;
+  }
+
+  .timeline {
+    padding-left: 3rem;
+  }
+
+  .timeline-dot {
+    left: -3.35rem;
+  }
+
+  .timeline-item {
+    padding-left: 2rem;
+  }
+}
