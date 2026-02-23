@@ -466,6 +466,30 @@ body {
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
 }
 
+/* ========== Telegram Section (cream bg) ========== */
+
+.tg-section {
+  background: var(--cream);
+  padding: 2rem 1.5rem 3.2rem;
+}
+
+.tg-card {
+  text-align: center;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.tg-card p {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--olive);
+  margin-bottom: 1rem;
+}
+
+.tg-card .btn {
+  margin-top: 0.4rem;
+}
+
 /* ========== Footer ========== */
 
 .footer {
